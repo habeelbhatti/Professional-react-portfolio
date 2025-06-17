@@ -1,0 +1,187 @@
+/* Home.css */
+
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: background-color 0.5s ease;
+  z-index: 1;
+}
+
+/* Dark & Light Mode */
+.home-container.dark {
+  background-color: #000;
+  color: #fff;
+}
+
+.home-container.light {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Particles layer */
+#tsparticles {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+/* Top Left Section */
+.top-left {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.profile-img {
+  margin-top: 70px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2bb9dd;
+}
+
+.react-logo {
+  margin-left: 1150px;
+  margin-top: 40px;
+  width: 150px;
+  height: 220px;
+  animation: spin 8s linear infinite;
+}
+
+/* React logo spin animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Top Right Theme Toggle */
+.top-right {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+
+.toggle-btn {
+  background: none;
+  border: 2px solid currentColor;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: inherit;
+  transition: background 0.3s ease;
+}
+.toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content */
+.content {
+  z-index: 2;
+  max-width: 800px;
+}
+
+.content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.home-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: transparent;
+  color: inherit;
+  border: 2px solid currentColor;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  background-color: currentColor;
+  color: #000;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 2;
+}
+
+.social-icons a {
+  color: inherit;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.3);
+  color: #61dafb; /* React blue */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 2.5rem;
+  }
+
+  .content h2 {
+    font-size: 1.5rem;
+  }
+
+  .profile-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .react-logo {
+    width: 30px;
+    height: 30px;
+  }
+}
