@@ -26,48 +26,72 @@ const Contact = () => {
       className="contact-section"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       id="contact"
     >
       <Particles id="particles-bg" init={particlesInit} options={{
         background: { color: "#000" },
         fpsLimit: 60,
         particles: {
-          color: { value: "#00f0ff" },
-          links: { enable: true, color: "#00f0ff", distance: 120 },
+          color: { value: "#2bb9dd" },
+          links: { enable: true, color: "#2bb9dd", distance: 120 },
           move: { enable: true, speed: 1 },
           size: { value: 3 },
         },
       }} />
 
-      <h2 className="section-title">📬 Contact Me</h2>
+      <motion.h2
+        className="section-title"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        📬 Let’s Connect
+      </motion.h2>
 
       <div className="contact-content">
-        <div className="contact-left">
+        {/* Left side */}
+        <motion.div
+          className="contact-left"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <Player
             autoplay
             loop
             src="https://lottie.host/6751f1bf-f273-4ce4-9783-96f20f10c5a5/JHNpimoM5F.lottie"
-            style={{ height: '200px', width: '200px' }}
+            style={{ height: '250px', width: '250px' }}
           />
-          <p className="contact-item"><FaEnvelope /> habeelbhatti980@gmail.com</p>
-          <p className="contact-item"><FaLinkedin /><a href="https://linkedin.com/in/habeel-bhatti-29368735b" target="_blank">LinkedIn</a></p>
-          <p className="contact-item"><FaGithub /><a href="https://github.com/habeelbhatti" target="_blank">GitHub</a></p>
-          <p className="contact-item"><FaWhatsapp /> <a href="https://wa.me/923291069830" target="_blank">WhatsApp</a></p>
-          <p className="contact-item"><FaMapMarkerAlt /> Lahore, Cavalry Ground</p>
-          <p className="contact-item"><FaClock /> 10 AM – 6 PM (GMT+5)</p>
+          <div className="contact-info">
+            <p><FaEnvelope /> habeelbhatti980@gmail.com</p>
+            <p><FaLinkedin /><a href="https://linkedin.com/in/habeel-bhatti-29368735b" target="_blank" rel="noopener noreferrer"> LinkedIn</a></p>
+            <p><FaGithub /><a href="https://github.com/habeelbhatti" target="_blank" rel="noopener noreferrer"> GitHub</a></p>
+            <p><FaWhatsapp /><a href="https://wa.me/923291069830" target="_blank" rel="noopener noreferrer"> WhatsApp</a></p>
+            <p><FaMapMarkerAlt /> Lahore, Cavalry Ground</p>
+            <p><FaClock /> 10 AM – 6 PM (GMT+5)</p>
+          </div>
+
           <div className="cv-buttons">
-            <a href="https://drive.google.com/file/d/1H8GMtn2_UBM4zsBpz-MQVygc1M7nHsGC/view?usp=sharing" className="btn view-cv" target="_blank"><FaEye /> View CV</a>
-            <a href="https://drive.google.com/uc?export=download&id=1H8GMtn2_UBM4zsBpz-MQVygc1M7nHsGC" className="btn download-cv" target="_blank"><FaDownload /> Download CV</a>
+            <a href="https://drive.google.com/file/d/1BMmIToekKrlzi9JN-gpu49QakCJvj_3N/view?usp=sharing" target="_blank" className="btn view-cv"><FaEye /> View CV</a>
+            <a href="https://drive.google.com/uc?export=download&id=1BMmIToekKrlzi9JN-gpu49QakCJvj_3N" target="_blank" className="btn download-cv"><FaDownload /> Download CV</a>
             <a href="/HabeelBhatti.vcf" download className="btn save-contact">📇 Save Contact</a>
           </div>
-        </div>
+        </motion.div>
 
-        <form ref={form} onSubmit={handleSubmit} className="contact-form">
+        {/* Right side form */}
+        <motion.form
+          ref={form}
+          onSubmit={handleSubmit}
+          className="contact-form"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <input type="text" name="user_name" placeholder="Your Name" required />
           <input type="email" name="user_email" placeholder="Your Email" required />
           <textarea name="message" placeholder="Your Message" required></textarea>
-          <button type="submit" className="btn">Send Message</button>
+          <button type="submit" className="btn send-btn">Send Message</button>
 
           <AnimatePresence>
             {submitted && (
@@ -82,7 +106,7 @@ const Contact = () => {
               </motion.p>
             )}
           </AnimatePresence>
-        </form>
+        </motion.form>
       </div>
     </motion.section>
   );
